@@ -1,25 +1,23 @@
 <template>
-    <calendar-cmp></calendar-cmp>
+  <div>
+    <login-view></login-view>
+    <!-- <router-link to="./login">Login</router-link>
+    <router-view></router-view> -->
+  </div>
 </template>
 
 <script>
-import CalendarCmp from './components/User/Calendar-Ui.vue';
-
+import LoginView from "./pages/MakeAppointment.vue"
 export default {
-  name: 'App',
   components: {
-    CalendarCmp
-  }
-}
-</script>
+    LoginView
+  },
+  data() {
+    return {};
+  },
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
+  mounted() {},
+
+  methods: {},
+};
+</script>
