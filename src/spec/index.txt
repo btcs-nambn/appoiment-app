@@ -1,0 +1,19 @@
+Ứng dụng Appointment Management là ứng dụng cho phép khách hàng đặt lịch cuộc hẹn dựa trên danh sách lịch có sẵn hiển thị theo tuần
+App gồm 2 trang là 
+-Admin
+-User
+*User bao gồm 2 page 
+-page UserInfor :bao gồm thông tin khách hàng các cuộc hẹn. 
+--- bao gồm các chức năng:
+        +Đặt lịch hẹn
+        +Sửa Lịch hẹn
+        +Huỷ Lịch Hẹn
+-page MakeAppointment :cho phép khách hàng tìm kiếm các thời gian còn trống để thêm lịch hẹn hay huỷ các cuộc hẹn đã hẹn.
+---- bao gồm các chức năng:
+        +Đặt lịch hẹn.
+        +Sửa Lịch Hẹn
+        +Xem Danh Sách các cuộc hẹn
+*Admin page: quản lý thông tin khachs hàng và các cuộc hẹn bao gồm các chức năng:
+        +Thêm  sửa xoá thông tin khách hàng
+        +Thêm sửa xoá  các cuộc hẹn.
+
