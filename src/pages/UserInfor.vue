@@ -1,17 +1,9 @@
 <template>
-    <div>
-        
-    </div>
+  <div></div>
 </template>
 
 <script>
 export default {
-    name: 'UserInfor',
-
-    data() {
-        return {
-
-        };
-    },
+  name: "UserInfor",
 };
 </script>
