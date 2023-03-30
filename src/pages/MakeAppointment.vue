@@ -1,9 +1,13 @@
 <template>
-  <div></div>
+  <div>
+    
+  </div>
 </template>
 
 <script>
 export default {
-  name: "MakeAppointment",
+  name: 'MakeAppointment',
+
 };
 </script>
+
