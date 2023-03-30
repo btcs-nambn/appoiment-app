@@ -1,30 +1,18 @@
 <template>
   <div>
-    <user-infor></user-infor>
+    <router-link to="./"></router-link>
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
-import UserInfor from './components/pages/UserInfor.vue';
+import { RouterLink,RouterView } from 'vue-router';
+
 export default {
 
-  name: 'AppointmentAppApp',
   components: {
-    UserInfor,
+    RouterLink,
+    RouterView
   },
-
-  data() {
-    return {
-      
-    };
-  },
-
-  mounted() {
-    
-  },
-
-  methods: {
-    
-  },
-};
+}
 </script>

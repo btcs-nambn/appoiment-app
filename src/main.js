@@ -1,5 +1,26 @@
 import { createApp } from 'vue'
 import App from './App.vue'
-import './index.css'
+import { createRouter,createWebHistory } from 'vue-router'
+import './css/index.css'
+// import component để sử dụng router
+import LoginUser from './components/LoginUser.vue'
+import HistoryAppointment from './components/UserHistoryAppointment.vue'
+import UserInfor from './pages/UserInfor.vue'
+import MakeAppointment from './pages/MakeAppointment.vue'
 
-createApp(App).mount('#app')
+
+
+const router = createRouter({
+    history: createWebHistory(),
+    routes: [
+        { path:'/', redirect:'./login'},
+        { path:'/login', component:LoginUser},
+        { path:'/history', component:HistoryAppointment},
+        { path:'/Userinfor', component:UserInfor},
+        { path:'/makeappointment', component:MakeAppointment}
+    ]
+    
+});
+const app = createApp(App);
+app.use(router);
+app.mount('#app');
