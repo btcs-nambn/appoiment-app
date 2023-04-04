@@ -53,12 +53,14 @@ export default {
         this.$emit(
           "add-appointment",
           this.appointmentTitle,
-          this.appointmentContent
-        );
+          this.appointmentContent,
+          );
+
       }
     },
     hiddentModal() {
       this.isVisible = false;
+      this.$emit('hidenshow', this.isVisible);
     }
   },
 };

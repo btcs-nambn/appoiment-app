@@ -16,7 +16,8 @@
     <div
       v-if="isVisibleMakeappointment"
       class="flex justify-center items-center z-50 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-      <appointment-infor @add-appointment="addAppointment"></appointment-infor>
+      <appointment-infor @add-appointment="addAppointment"
+      @hidenshow="show"></appointment-infor>
     </div>
   </div>
 </template>
@@ -60,7 +61,11 @@ export default {
       this.isVisibleMakeappointment = true;
       this.dateOrder = day.format("DD-MM-YYYY");
       this.timeOrder = time;
+
     },
+    show(bool) {
+      this.isVisibleMakeappointment = bool;
+    }
   },
 };
 </script>
