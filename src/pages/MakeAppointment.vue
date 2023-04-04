@@ -2,9 +2,10 @@
   <div class="relative">
     <div
       class="w-screen h-[700px] border text-white grid grid-rows-6 bg-slate-400">
-      <div class="row-span-1 w-full pr-5 flex justify-center items-center border">
+      <div
+        class="row-span-1 w-full pr-5 flex justify-center items-center border">
         <p
-          class="text-center animate-pulse rainbow-text font-bold text-4xl mt-5 ">
+          class="text-center animate-pulse rainbow-text font-bold text-4xl mt-5">
           Make Appointment Managerment
         </p>
       </div>
@@ -16,8 +17,9 @@
     <div
       v-if="isVisibleMakeappointment"
       class="flex justify-center items-center z-50 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-      <appointment-infor @add-appointment="addAppointment"
-      @hidenshow="show"></appointment-infor>
+      <appointment-infor
+        @addAppointment="addAppointment"
+        @hidenModal="show"></appointment-infor>
     </div>
   </div>
 </template>
@@ -61,11 +63,10 @@ export default {
       this.isVisibleMakeappointment = true;
       this.dateOrder = day.format("DD-MM-YYYY");
       this.timeOrder = time;
-
     },
-    show(bool) {
-      this.isVisibleMakeappointment = bool;
-    }
+    show() {
+      this.isVisibleMakeappointment = false;
+    },
   },
 };
 </script>

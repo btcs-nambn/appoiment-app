@@ -1,5 +1,5 @@
 <template>
-  <div v-if="isVisible"
+  <div
     class="flex justify-center items-center flex-col w-[400px] h-[400px] mt-0 bg-slate-400 z-50 rounded-xl shadow-xl">
     <h2 class="mt-10 ml-10 text-black">Make Appointment</h2>
     <form class="mt-3 mr-7" @submit.prevent="addAppointment">
@@ -27,7 +27,12 @@
           Submit
         </span>
       </button>
-      <button class="underline text-sm text-blue-800" type="button" @click="hiddentModal">Hidden</button>
+      <button
+        class="underline text-sm text-blue-800"
+        type="button"
+        @click="hiddentModal">
+        Hidden
+      </button>
     </form>
   </div>
 </template>
@@ -38,7 +43,6 @@ export default {
   emits: ["add-appointment"],
   data() {
     return {
-      isVisible: true,
       appointmentTitle: "",
       appointmentContent: "",
     };
@@ -53,14 +57,12 @@ export default {
         this.$emit(
           "add-appointment",
           this.appointmentTitle,
-          this.appointmentContent,
-          );
-
+          this.appointmentContent
+        );
       }
     },
     hiddentModal() {
-      this.isVisible = false;
-      this.$emit('hidenshow', this.isVisible);
+      this.$emit("hiden-modal");
     }
   },
 };
