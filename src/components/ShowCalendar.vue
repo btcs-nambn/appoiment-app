@@ -1,10 +1,10 @@
 <template>
-  <div class="grid grid-cols-8 grid-rows-6 w-full h-screen bg-gray-400">
+  <div class="grid grid-cols-8 grid-rows-6 w-full h-screen bg-slate-700">
     <div class="row-span-1 col-span-8">
       <div class="mx-auto flex justify-center h-full">
         <button
           type="button"
-          class="text-white bg-gradient-to-r from-purple-500 via-purple-600 to-purple-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-purple-300 dark:focus:ring-purple-800 shadow-lg shadow-purple-500/50 dark:shadow-lg dark:shadow-purple-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 h-20 mt-4"
+          class="flex justify-center items-center ml-9 shadow-xl mt-[30px] w-[100px] h-[50px] rounded-xl border border-spacing-1 bg-purple-500 hover:opacity-50 hover:text-yellow-200"
           @click="setStartDayOfPreviousWeeks">
           &#60;
         </button>
@@ -21,21 +21,21 @@
           </label>
           <button
             type="button"
-            class="flex justify-center items-center ml-9 mt-2 w-28 h-6 rounded-xl border border-spacing-1 bg-purple-500 hover:opacity-50 hover:text-yellow-200"
+            class="flex justify-center items-center ml-7 text-sm mt-2 w-32 h-6 rounded-xl border border-spacing-1 bg-purple-500 hover:opacity-50 hover:text-yellow-200 shadow-xl"
             @click="backNowWeek">
-            CurrenDate
+            Current Date
           </button>
         </div>
         <button
           type="button"
-          class="text-white bg-gradient-to-r from-purple-500 via-purple-600 to-purple-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-purple-300 dark:focus:ring-purple-800 shadow-lg shadow-purple-500/50 dark:shadow-lg dark:shadow-purple-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 ml-3 mt-4 h-20"
-          @click="setStartDayOfWeek">
+          class="flex justify-center items-center ml-1 mt-[30px] w-[100px] h-[50px] rounded-xl border border-spacing-1 bg-purple-500 hover:opacity-50 hover:text-yellow-200 shadow-xl"
+          @click="setStartDayOfNextWeek">
           &#62;
         </button>
       </div>
     </div>
     <!-- Body -->
-    <div class="a row-span-5 col-span-8 border-2 w-full h-full pr-3">
+    <div class="a row-span-5 col-span-8 border w-full h-full pr-3">
       <div class="grid grid-cols-8 grid-rows-6 h-full w-full">
         <div class="col-span-1 row-span-1"></div>
         <div
@@ -62,26 +62,26 @@
           {{ getDate(dayofweek) }}
         </div>
         <div
-          class="col-span-8 row-span-4 border-2 border-b-2 grid grid-row-6 overflow-auto">
+          class="col-span-8 row-span-4 border border-b-2 grid grid-row-4 overflow-auto">
           <div
             v-for="time in timeWorks"
             :key="time"
-            class="row-span-1 w-full border-2 flex justify-between gap-x-2 items-center p-5">
-            <div class="border-2">{{ time }}</div>
+            class="row-span-1 w-full border flex justify-between gap-x-2 items-center p-5">
+            <div class="border w-20 h-10 rounded-xl flex justify-center items-center underline text-blue-500">{{ time }}</div>
             <div
               v-for="day in dayInWeek"
               :key="day.clone().day"
-              class="flex justify-between items-center b"
+              class="flex justify-between items-center"
               :class="{
-                'text-red-400 bg-red-200': getDay(day) === 'Sun',
-                'text-blue-400 bg-blue-200': getDay(day) === 'Sat',
+                'text-red-400 bg-red-200 rounded-xl': getDay(day) === 'Sun',
+                'text-blue-400 bg-blue-200 rounded-xl': getDay(day) === 'Sat',
               }"
               @click="chooseTime(day, time)">
               <button
-                class="border-2 rounded-full w-10 h-10 border-red-300 bg-yellow-50 hover:opacity-80">
+                class="border w-20 h-20 rounded-xl hover:opacity-80 hover:bg-orange-400 flex items-center justify-center">
                 <img
-                  class="h-7 w-7 ml-1"
-                  src="https://as2.ftcdn.net/v2/jpg/01/79/12/07/1000_F_179120718_bQ8B8z5lPgf3SMizWsCY9412NBT5vMRM.jpg" />
+                  class="h-7 w-7 ml-1 rounded"
+                  src="https://cdn-icons-png.flaticon.com/512/1251/1251194.png" />
               </button>
             </div>
           </div>
@@ -122,8 +122,8 @@ export default {
       const momentStartDayOfWeek = moment(this.currentStartDayOfWeek);
       const dayInWeekArr=[];
         for ( var i = 0; i < 7;i++) {
-          momentStartDayOfWeek.clone().add(i, "day");
-          dayInWeekArr.push(momentStartDayOfWeek);
+          const dayofweek = momentStartDayOfWeek.clone().add(i, "day");
+          dayInWeekArr.push(dayofweek);
         }
       return dayInWeekArr ;
     },
@@ -142,7 +142,7 @@ export default {
       this.currentStartDayOfWeek = moment().startOf("week").format();
     },
 
-    setStartDayOfWeek() {
+    setStartDayOfNextWeek() {
       this.currentStartDayOfWeek = moment(this.currentStartDayOfWeek)
         .add(7, "day")
         .format();

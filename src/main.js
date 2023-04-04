@@ -18,6 +18,7 @@ const router = createRouter({
     { path: "/makeappointment", component: MakeAppointment },
   ],
 });
+
 const app = createApp(App);
 app.use(router);
 app.mount("#app");

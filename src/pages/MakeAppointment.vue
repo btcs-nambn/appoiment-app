@@ -1,29 +1,22 @@
 <template>
-  <div
-    class="w-[1100px] h-[650px] mx-auto mt-12 border rounded-3xl text-white border-spacing-3 shadow-2xl grid grid-rows-6 bg-slate-300">
-    <div class="row-span-1 w-full pr-5">
-      <p
-        class="text-center flex justify-center items-center animate-pulse rainbow-text font-bold text-4xl mt-5">
-        Make Appointment Managerment
-      </p>
-      <p class="text-black flex justify-end items-end hover:text-blue-400">
-        User Name
-      </p>
-      <a
-        class="text-black flex justify-end items-end hover:text-blue-400"
-        href="#"
-        >Log Out</a
-      >
-    </div>
-    <div class="row-span-5 w-full grid grid-cols-3 grid-rows-6">
-      <div class="col-span-2 row-span-6 overflow-auto">
+  <div class="relative">
+    <div
+      class="w-screen h-[700px] border text-white grid grid-rows-6 bg-slate-400">
+      <div class="row-span-1 w-full pr-5 flex justify-center items-center border">
+        <p
+          class="text-center animate-pulse rainbow-text font-bold text-4xl mt-5 ">
+          Make Appointment Managerment
+        </p>
+      </div>
+      <div class="row-span-5 overflow-auto">
         <show-calendar @choose-time="makeAppointment"></show-calendar>
       </div>
-      <div class="col-span-1 row-span-6 border">
-        <appointment-infor
-          @addAppointment="addAppointment"
-          v-if="isVisibleMakeappointment"></appointment-infor>
-      </div>
+    </div>
+
+    <div
+      v-if="isVisibleMakeappointment"
+      class="flex justify-center items-center z-50 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+      <appointment-infor @add-appointment="addAppointment"></appointment-infor>
     </div>
   </div>
 </template>
@@ -38,8 +31,8 @@ export default {
   data() {
     return {
       isVisibleMakeappointment: false,
-      dateOrder:[],
-      timeOrder:[],
+      dateOrder: "",
+      timeOrder: "",
       apiMakeAppointment:
         "https://appointment-management-381708-default-rtdb.firebaseio.com/appointmentInfor.json",
     };
@@ -57,7 +50,7 @@ export default {
           appointmentTitle: title,
           appointmentContent: content,
           date: this.dateOrder,
-          time: this.timeOrder
+          time: this.timeOrder,
         }),
       }).catch((error) => {
         throw new Error(error);
@@ -65,8 +58,8 @@ export default {
     },
     makeAppointment(day, time) {
       this.isVisibleMakeappointment = true;
-      this.dateOrder.push(day.format("DD-MM-YYYY"));
-      this.timeOrder.push(time);
+      this.dateOrder = day.format("DD-MM-YYYY");
+      this.timeOrder = time;
     },
   },
 };
