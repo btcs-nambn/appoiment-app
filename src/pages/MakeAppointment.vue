@@ -19,7 +19,7 @@
       class="flex justify-center items-center z-50 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
       <appointment-infor
         @addAppointment="addAppointment"
-        @hidenModal="show"></appointment-infor>
+        @hidenModal="showModal"></appointment-infor>
     </div>
   </div>
 </template>
@@ -64,7 +64,7 @@ export default {
       this.dateOrder = day.format("DD-MM-YYYY");
       this.timeOrder = time;
     },
-    show() {
+    showModal() {
       this.isVisibleMakeappointment = false;
     },
   },
