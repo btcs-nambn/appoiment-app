@@ -76,10 +76,12 @@
                 'text-red-400 bg-red-200': getDay(day) === 'Sun',
                 'text-blue-400 bg-blue-200': getDay(day) === 'Sat',
               }"
-              @click="chooseTime(day,time)">
+              @click="chooseTime(day, time)">
               <button
                 class="border-2 rounded-full w-10 h-10 border-red-300 bg-yellow-50 hover:opacity-80">
-                <img class="h-7 w-7 ml-1 " src="https://as2.ftcdn.net/v2/jpg/01/79/12/07/1000_F_179120718_bQ8B8z5lPgf3SMizWsCY9412NBT5vMRM.jpg">
+                <img
+                  class="h-7 w-7 ml-1"
+                  src="https://as2.ftcdn.net/v2/jpg/01/79/12/07/1000_F_179120718_bQ8B8z5lPgf3SMizWsCY9412NBT5vMRM.jpg" />
               </button>
             </div>
           </div>
@@ -112,22 +114,18 @@ export default {
         " 19: 00 ",
         " 20: 00 ",
       ],
-      nowDateTime: moment().format("MMMM Do YYYY"),
       currentStartDayOfWeek: moment().startOf("week").format(),
     };
   },
   computed: {
     dayInWeek() {
       const momentStartDayOfWeek = moment(this.currentStartDayOfWeek);
-      return [
-        momentStartDayOfWeek,
-        momentStartDayOfWeek.clone().add(1, "day"),
-        momentStartDayOfWeek.clone().add(2, "day"),
-        momentStartDayOfWeek.clone().add(3, "day"),
-        momentStartDayOfWeek.clone().add(4, "day"),
-        momentStartDayOfWeek.clone().add(5, "day"),
-        momentStartDayOfWeek.clone().add(6, "day"),
-      ];
+      const dayInWeekArr=[];
+        for ( var i = 0; i < 7;i++) {
+          momentStartDayOfWeek.clone().add(i, "day");
+          dayInWeekArr.push(momentStartDayOfWeek);
+        }
+      return dayInWeekArr ;
     },
   },
   methods: {

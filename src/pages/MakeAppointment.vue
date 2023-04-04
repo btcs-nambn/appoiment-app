@@ -38,7 +38,8 @@ export default {
   data() {
     return {
       isVisibleMakeappointment: false,
-      timeEvent: [],
+      dateOrder:[],
+      timeOrder:[],
       apiMakeAppointment:
         "https://appointment-management-381708-default-rtdb.firebaseio.com/appointmentInfor.json",
     };
@@ -55,17 +56,17 @@ export default {
           userName: "Demo User",
           appointmentTitle: title,
           appointmentContent: content,
-          time:this.timeEvent
+          date: this.dateOrder,
+          time: this.timeOrder
         }),
       }).catch((error) => {
-        // Xử lý lỗi
         throw new Error(error);
       });
     },
     makeAppointment(day, time) {
       this.isVisibleMakeappointment = true;
-      this.timeEvent.push(time, day);
-      console.log(this.timeEvent);
+      this.dateOrder.push(day.format("DD-MM-YYYY"));
+      this.timeOrder.push(time);
     },
   },
 };
