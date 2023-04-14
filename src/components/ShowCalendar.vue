@@ -85,7 +85,7 @@
                 'text-blue-400 bg-gradient-to-l from-blue-500 via-red-200 rounded-xl':
                   getDay(day) === 'Sat',
                 'pointer-events-none bg-yellow-100': booksDate.includes(
-                  fomatDay(day) + '_' + time
+                  formatDay(day) + '_' + time
                 ),
               }"
               @click="chooseTime(day, time)">
@@ -159,7 +159,7 @@ export default {
     backCurrentWeek() {
       this.currentStartDayOfWeek = moment().startOf("week").format();
     },
-    fomatDay(momentDate) {
+    formatDay(momentDate) {
       return momentDate.format("DD-MM-YYYY");
     },
 
