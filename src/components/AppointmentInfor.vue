@@ -2,7 +2,7 @@
   <div
     class="flex justify-center items-center flex-col w-[400px] h-[400px] mt-0 bg-slate-400 z-50 rounded-xl shadow-xl text-white">
     <h2 class="mt-10 ml-3 text-lg">Make Appointment</h2>
-    <form class="mt-3 mr-7" @submit.prevent="addAppointment">
+    <form class="mt-3 mr-7">
       <label class="ml-12">Title :</label>
       <div class="relative flex">
         <input
@@ -22,13 +22,11 @@
       </textarea>
       <div class="flex justify-center items-center mt-3 ml-10"> 
         <button
-          type="button"
           class="text-gray-900 bg-gradient-to-r from-teal-200 to-lime-200 hover:bg-gradient-to-l hover:from-teal-200 hover:to-lime-200 focus:ring-4 focus:outline-none focus:ring-lime-200 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2"
           @click="addAppointment">
           Submit
         </button>
         <button
-          type="button"
           class="text-gray-900 bg-gradient-to-r from-teal-200 to-lime-200 hover:bg-gradient-to-l hover:from-teal-200 hover:to-lime-200 focus:ring-4 focus:outline-none focus:ring-lime-200 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2"
           @click="$emit('hiden-modal')">
           Hidden
