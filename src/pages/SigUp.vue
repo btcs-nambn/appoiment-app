@@ -102,9 +102,7 @@ export default {
       phonenumberOfUser: "",
       userName: "",
       password: "",
-      apiLogin:
-        "https://appointment-management-381708-default-rtdb.firebaseio.com/userInfor.json",
-    };
+};
   },
 
   mounted() {},
@@ -123,21 +121,24 @@ export default {
       ) {
         alert("Please enter your full Data!");
       } else {
-        fetch(this.apiLogin, {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            name: this.nameOfUser,
-            age: this.ageOfUser,
-            adress: this.adressOfUser,
-            email_adress: this.emailOfUser,
-            phone_number: this.phonenumberOfUser,
-            user_name: this.userName,
-            password: this.password,
-          }),
-        })
+        fetch(
+          "https://appointment-management-381708-default-rtdb.firebaseio.com/userInfor.json",
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              name: this.nameOfUser,
+              age: this.ageOfUser,
+              adress: this.adressOfUser,
+              email_adress: this.emailOfUser,
+              phone_number: this.phonenumberOfUser,
+              user_name: this.userName,
+              password: this.password,
+            }),
+          }
+        )
           .then((res) => {
             if (!res.ok) {
               throw new Error(res.message);

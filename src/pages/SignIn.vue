@@ -49,8 +49,6 @@ export default {
     return {
       userNameLogin: "",
       passwordLogin: "",
-      apiLogin:
-        "https://appointment-management-381708-default-rtdb.firebaseio.com/userInfor.json",
     };
   },
 
@@ -62,7 +60,7 @@ export default {
       if (this.userNameLogin === "" || this.userpasswordLogin === "") {
         alert("Please enter your name and password");
       } else {
-        fetch(this.apiLogin, {
+        fetch("https://appointment-management-381708-default-rtdb.firebaseio.com/userInfor.json", {
           method: "GET",
           headers: {
             "Content-Type": "application/json",

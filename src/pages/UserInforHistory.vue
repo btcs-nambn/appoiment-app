@@ -125,10 +125,6 @@ export default {
       addressOfUser: "",
       emailOfUser: "",
       phoneOfUser: "",
-      apiLogin:
-        "https://appointment-management-381708-default-rtdb.firebaseio.com/userInfor.json",
-      apiMakeAppointment:
-        "https://appointment-management-381708-default-rtdb.firebaseio.com/appointmentInfor.json",
     };
   },
   methods: {
@@ -169,7 +165,7 @@ export default {
       this.isChange = false;
     },
     getUserInfor() {
-      fetch(this.apiLogin, {
+      fetch("https://appointment-management-381708-default-rtdb.firebaseio.com/userInfor.json", {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
@@ -192,7 +188,7 @@ export default {
         });
     },
     getAppointmentforUser() {
-      fetch(this.apiMakeAppointment, {
+      fetch("https://appointment-management-381708-default-rtdb.firebaseio.com/appointmentInfor.json", {
         method: "GET",
         headers: {
           "Content-Type": "application/json",

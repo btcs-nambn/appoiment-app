@@ -85,7 +85,7 @@
                 'text-blue-400 bg-gradient-to-l from-blue-500 via-red-200 rounded-xl':
                   getDay(day) === 'Sat',
                 'pointer-events-none bg-yellow-100': booksDate.includes(
-                  fomatday(day) + '_' + time
+                  fomatDay(day) + '_' + time
                 ),
               }"
               @click="chooseTime(day, time)">
@@ -119,8 +119,8 @@ export default {
     return {
       timeWorks: [
         "08:00",
-        "10:00",
         "09:00",
+        "10:00",
         "11:00",
         "12:00",
         "13:00",
@@ -133,9 +133,6 @@ export default {
         "20:00",
       ],
       currentStartDayOfWeek: moment().startOf("week").format(),
-      apiMakeAppointment:
-        "https://appointment-management-381708-default-rtdb.firebaseio.com/appointmentInfor.json",
-     
     };
   },
   computed: {
@@ -162,8 +159,8 @@ export default {
     backCurrentWeek() {
       this.currentStartDayOfWeek = moment().startOf("week").format();
     },
-    fomatday(moemntDate) {
-      return moemntDate.format("DD-MM-YYYY");
+    fomatDay(momentDate) {
+      return momentDate.format("DD-MM-YYYY");
     },
 
     setStartDayOfNextWeek() {

@@ -62,14 +62,12 @@ export default {
       isVisibleMakeappointment: false,
       dateOrder: "",
       timeOrder: "",
-      apiMakeAppointment:
-        "https://appointment-management-381708-default-rtdb.firebaseio.com/appointmentInfor.json",
     };
   },
   methods: {
     addAppointment(title, content) {
       this.isVisibleMakeappointment = false;
-      fetch(this.apiMakeAppointment, {
+      fetch("https://appointment-management-381708-default-rtdb.firebaseio.com/appointmentInfor.json", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -83,7 +81,6 @@ export default {
           time: this.timeOrder,
         }),
       })
-        .then((response) => response.json())
         .then(() => {
           this.getAppointment();
           console.log('make appointment successful');
@@ -108,7 +105,7 @@ export default {
       this.$router.push({ path: "/Userinformation" });
     },
     getAppointment() {
-      fetch(this.apiMakeAppointment, {
+      fetch("https://appointment-management-381708-default-rtdb.firebaseio.com/appointmentInfor.json", {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
