@@ -67,18 +67,13 @@
           class="rounded-t-md h-8 w-[300px]"
           v-model="userName" />
       </span>
-      <span class="flex gap-4">
-        <label for="passwords" class="ml-5 text-white w-[150px]">
-          Pass Word:</label
-        >
-        <input
-          type="password"
-          name="passwords"
-          placeholder="Your PassWords"
-          class="rounded-t-md h-8 w-[300px]"
-          v-model="password" />
-      </span>
-      <span class="flex justify-center items-center gap-2">
+      <span class="flex justify-center items-center gap-2 mt-4">
+        <button
+          type="submit"
+          class="bg-gradient-to-r from-slate-100 to-fuchsia-200 border rounded-lg w-32 active:ring-4 border-r-indigo-300"
+          @click="backToLogin">
+          Login
+        </button>
         <button
           type="submit"
           class="bg-gradient-to-r from-slate-100 to-fuchsia-200 border rounded-lg w-32 active:ring-4 border-r-indigo-300"
@@ -101,17 +96,18 @@ export default {
       emailOfUser: "",
       phonenumberOfUser: "",
       userName: "",
-      password: "",
 };
   },
 
   mounted() {},
 
   methods: {
+    backToLogin() {
+      this.$router.push({ path: './' });
+    },
     registerUser() {
       if (
         this.userName === "" ||
-        this.password === "" ||
         this.ageOfUser === "" ||
         this.nameOfUser === "" ||
         this.ageOfUser === "" ||
@@ -135,7 +131,6 @@ export default {
               email_adress: this.emailOfUser,
               phone_number: this.phonenumberOfUser,
               user_name: this.userName,
-              password: this.password,
             }),
           }
         )
