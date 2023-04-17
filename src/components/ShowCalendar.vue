@@ -1,84 +1,83 @@
 <template>
-  <div class="grid grid-cols-8 grid-rows-6 w-full h-screen bg-slate-700">
-    <div class="row-span-1 col-span-8">
-      <div class="mx-auto flex justify-center h-full mr-10">
+  <div class="grid grid-cols-8 w-full h-screen bg-slate-800">
+    <div class="row-span-1 col-span-8 h-[100px] w-full">
+      <div class="flex justify-center items-center h-full">
         <button
-          type="button"
-          class="flex justify-center items-center ml-9 shadow-xl mt-[30px] w-[100px] h-[50px] rounded-xl border border-spacing-1 bg-purple-500 hover:opacity-50 hover:text-yellow-200 mr-4"
+          class="relative inline-flex items-center justify-center p-0.5 mb-2 mr-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-red-200 via-red-300 to-yellow-200 group-hover:from-red-200 group-hover:via-red-300 group-hover:to-yellow-200 focus:ring-4 focus:outline-none focus:ring-red-100"
           @click="setStartDayOfPreviousWeeks">
-          &#60;
+          <span
+            class="relative px-5 py-2.5 transition-all ease-in duration-75 bg-white rounded-md group-hover:bg-opacity-0">
+            &#60;
+          </span>
         </button>
-        <div class="relative">
-          <input
-            type="text"
-            id="disabled_outlined"
-            class="block px-2.5 pb-2.5 pt-4 w-full text-sm text-gray-900 bg-transparent rounded-lg border-1 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer h-20"
-            disabled />
-          <label
-            for="disabled_outlined"
-            class="absolute font-bold text-center text-clip text-xl text-gray-400 dark:text-gray-500 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] dark:bg-gray-900 px-2 peer-focus:px-2 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1 w-[220px] h-20 mt-5 ml-1 mr-1 bg-purple-200 rounded-lg flex items-center justify-center"
+        <div class="flex flex-col mr-3">
+          <label class="p-2  bg-slate-500 rounded-lg shadow-inner"
             >{{ getFullDate(currentStartDayOfWeek) }}
           </label>
           <button
-            type="button"
-            class="flex justify-center items-center ml-7 text-sm mt-2 w-32 h-6 rounded-xl border border-spacing-1 bg-purple-500 hover:opacity-50 hover:text-yellow-200 shadow-xl"
+            class="relative inline-flex items-center justify-center p-0.5 ml-8 my-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-red-200 via-red-300 to-yellow-200 group-hover:from-red-200 group-hover:via-red-300 group-hover:to-yellow-200 focus:ring-4 focus:outline-none focus:ring-red-100 w-[100px]"
             @click="backCurrentWeek">
-            Current Date
+            <span
+              class="text-[12px] relative transition-all ease-in duration-75 bg-white rounded-md group-hover:bg-opacity-0 w-full h-full shadow-xl">
+              Current Date
+            </span>
           </button>
         </div>
         <button
-          type="button"
-          class="flex justify-center items-center ml-1 mt-[30px] w-[100px] h-[50px] rounded-xl border border-spacing-1 bg-purple-500 hover:opacity-50 hover:text-yellow-200 shadow-xl"
+          class="relative inline-flex items-center justify-center p-0.5 mb-2 mr-3 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-red-200 via-red-300 to-yellow-200 group-hover:from-red-200 group-hover:via-red-300 group-hover:to-yellow-200 focus:ring-4 focus:outline-none focus:ring-red-100"
           @click="setStartDayOfNextWeek">
-          &#62;
+          <span
+            class="relative px-5 py-2.5 transition-all ease-in duration-75 bg-white rounded-md group-hover:bg-opacity-0">
+            &#62;
+          </span>
         </button>
       </div>
     </div>
     <!-- Body -->
-    <div class="a row-span-5 col-span-8 border w-full h-full pr-3">
-      <div class="grid grid-cols-8 grid-rows-6 h-full w-full">
-        <div class="col-span-1 row-span-1"></div>
+    <div class="col-span-8 border bỏder-b-0 w-auto h-auto pr-3">
+      <div class="grid grid-cols-8  h-full w-full">
+        <div class=""></div>
         <div
           v-for="day in dayInWeek"
           :key="day"
-          class="border flex items-center justify-center col-span-1 row-span-1 underline hover::text-xl hover:opacity-50 hover:text-blue-500 cursor-pointer transition ease-in-out duration-3 hover:text-sm hover:ring-4"
+          class="border flex items-center justify-center underline hover::text-xl hover:opacity-50 hover:text-blue-500 cursor-pointer transition ease-in-out duration-3 hover:text-sm hover:ring-4 h-[50px]"
           :class="{
-            'text-red-400 bg-gradient-to-r from-red-500 via-red-200 ':
+            'text-red-400 bg-gradient-to-r from-red-500 via-red-200  font-bold':
               getDay(day) === 'Sun',
-            'text-blue-400 bg-gradient-to-l from-blue-500 via-red-200':
+            'text-blue-400 bg-gradient-to-l from-blue-500 via-red-200 font-bold':
               getDay(day) === 'Sat',
           }">
           {{ getDay(day) }}
         </div>
-        <div class="col-span-1 row-span-1 border-t-0"></div>
+        <div class=""></div>
         <div
           v-for="dayofweek in dayInWeek"
           :key="dayofweek"
-          class="col-span-1 flex justify-center items-center border row-span-1 hover:opacity-50 hover:text-2xl"
+          class="flex justify-center items-center border hover:opacity-50 hover:text-2xl"
           :class="{
-            'text-red-400 bg-yellow-100 border-yellow-300 rounded-full border animate-pulse rainbow-text font-bold mt-8 h-10 w-10 mx-auto':
+            'text-red-400 bg-yellow-100 border-yellow-300 rounded-full  animate-pulse rainbow-text font-bold m-4 h-6 w-7 mx-auto border':
               isToday(dayofweek),
-            'text-red-400 bg-gradient-to-r from-red-500 via-red-200 underline':
+            'text-red-400 bg-gradient-to-r from-red-500 via-red-200 underline font-bold ':
               getDay(dayofweek) === 'Sun',
-            'text-blue-400 bg-gradient-to-l from-blue-500 via-red-200 underline':
+            'text-blue-400 bg-gradient-to-l from-blue-500 via-red-200 underline font-bold':
               getDay(dayofweek) === 'Sat',
           }">
           {{ getDate(dayofweek) }}
         </div>
         <div
-          class="col-span-8 row-span-4 border border-b-2 grid grid-row-4 overflow-auto">
+          class="col-span-8 ">
           <div
             v-for="time in timeWorks"
             :key="time"
-            class="time row-span-1 w-full border flex justify-between gap-x-2 items-center p-5">
+            class="time row-span-1 w-full border flex justify-between items-center p-3">
             <div
-              class="border w-20 h-10 rounded-xl flex justify-center items-center underline text-blue-500">
+              class="border p-1 rounded-xl flex justify-center bg-slate-200 items-center underline text-blue-500">
               {{ time }}
             </div>
             <div
               v-for="day in dayInWeek"
               :key="day.clone().day"
-              class="data flex justify-between items-center"
+              class="data flex justify-between items-center mr-2"
               :class="{
                 'text-red-400 bg-gradient-to-r from-red-500 via-red-200 rounded-xl':
                   getDay(day) === 'Sun',
@@ -90,7 +89,7 @@
               }"
               @click="chooseTime(day, time)">
               <button
-                class="date border w-20 h-20 rounded-xl hover:opacity-80 hover:bg-orange-400 flex items-center justify-center">
+                class="date border w-10 h-10 rounded-xl hover:opacity-80 hover:bg-orange-400 flex items-center justify-center">
                 <img
                   class="h-7 w-7 ml-1 rounded"
                   src="https://cdn-icons-png.flaticon.com/512/1251/1251194.png" />
@@ -112,8 +111,8 @@ export default {
   props: {
     booksDate: {
       type: Array,
-      required:true
-    }
+      required: true,
+    },
   },
   data() {
     return {

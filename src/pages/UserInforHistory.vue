@@ -55,7 +55,7 @@
             <span class="flex gap-4">
               <label for="name" class="w-[100px]">Phone</label>
               <input
-                type="number"
+                type="text"
                 class="name rounded-md bg-purple-300 shadow-input"
                 :disabled="isChange"
                 v-model="phoneOfUser" />

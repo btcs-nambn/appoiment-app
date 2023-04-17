@@ -1,17 +1,17 @@
 <template>
-  <div class="relative">
+  <div class=" bg-slate-600 rounded-2xl h-screen overflow-auto">
     <div
-      class="w-screen h-[700px] border text-white grid grid-rows-6 bg-slate-800">
+      class="w-[800px] h-[700px] border text-white grid grid-rows-6 bg-slate-800 mx-auto shadow-2xl">
       <div
         class="row-span-1 w-full pr-5 flex justify-between items-center border">
         <p
-          class="text-center animate-pulse rainbow-text font-bold text-4xl mt-5 ml-[25%]">
+          class="text-center animate-pulse rainbow-text font-bold text-[20px] mt-5 ml-[25%]">
           Make Appointment Managerment
         </p>
         <span class="flex flex-col ml-10 items-center">
           <label
             for="logout"
-            class="cursor-pointer hover:text-blue-200 text-purple-300"
+            class="cursor-pointer hover:text-blue-200 text-blue-500"
             >{{ userName }}</label
           >
           <a

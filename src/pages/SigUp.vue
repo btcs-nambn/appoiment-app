@@ -1,7 +1,7 @@
 <template>
-  <div class="w-full h-screen bg-slate-900 flex justify-center items-center">
+  <div class="w-full h-screen bg-gray-500 flex justify-center items-center">
     <div
-      class="w-[600px] h-auto p-8 border rounded-lg mx-auto shadow-xl flex flex-col gap-y-4">
+      class="w-[600px] h-auto p-8 rounded-lg mx-auto shadow-xl flex flex-col gap-y-4 bg-gray-400">
       <span>
         <p class="text-white text-[24px] ml-[40%] mt-10">Sign Up</p>
       </span>
@@ -50,7 +50,7 @@
           Phone number :</label
         >
         <input
-          type="text"
+          type="number"
           name="UserName"
           placeholder="Your user name"
           class="rounded-t-md h-8 w-[300px]"
@@ -70,13 +70,13 @@
       <span class="flex justify-center items-center gap-2 mt-4">
         <button
           type="submit"
-          class="bg-gradient-to-r from-slate-100 to-fuchsia-200 border rounded-lg w-32 active:ring-4 border-r-indigo-300"
+          class="bg-gradient-to-r from-slate-100 to-fuchsia-200 border rounded-lg w-32 active:ring-4 border-r-indigo-300 ring-2 hover:shadow-input ring-red-200 animate-bounce"
           @click="backToLogin">
           Login
         </button>
         <button
           type="submit"
-          class="bg-gradient-to-r from-slate-100 to-fuchsia-200 border rounded-lg w-32 active:ring-4 border-r-indigo-300"
+          class="bg-gradient-to-r from-slate-100 to-fuchsia-200 border rounded-lg w-32 active:ring-4 border-r-indigo-300 ring-2 hover:shadow-input ring-red-200 animate-bounce"
           @click="registerUser">
           Register
         </button>

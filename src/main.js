@@ -14,18 +14,26 @@ import Store from "./store";
 const router = createRouter({
   history: createWebHistory(),
   routes: [
-    { path: "/", redirect: "./login" },
-    { path: "/login", component: LoginUser },
-    { path: "/register", component: RegisterUser },
+    {name:"login", path: "/", redirect: "./login" },
+    { name:"login" ,path: "/login", component: LoginUser },
+    { name : "register" ,path: "/register", component: RegisterUser },
 
-    { path: "/Userinformation", component: UserInfor },
+    { name:"userInfor", path: "/Userinformation", component: UserInfor },
     {
+      name:"makeappointment",
       path: "/makeappointment",
       component: MakeAppointment,
     },
   ],
 });
 
+router.beforeEach((to, from, next) => {
+  if (localStorage.getItem("UserName") === null && to.name !== "login" && to.name !== 'register'){
+    next({ name: 'login' });
+  } else {
+    next();
+  }
+});
 const app = createApp(App);
 app.use(Store);
 app.use(router);
