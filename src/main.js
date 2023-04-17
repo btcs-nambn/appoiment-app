@@ -14,7 +14,7 @@ import Store from "./store";
 const router = createRouter({
   history: createWebHistory(),
   routes: [
-    {name:"login", path: "/", redirect: "./login" },
+    { path: "/", redirect: "./login" },
     { name:"login" ,path: "/login", component: LoginUser },
     { name : "register" ,path: "/register", component: RegisterUser },
 
